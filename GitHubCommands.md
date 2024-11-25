@@ -61,3 +61,10 @@
 - **git blame [file]**: Show what revision and author last modified each line of a file.
 - **git clean -f**: Remove untracked files from the working directory.
 
+## References:
+
+Official page:
+  https://git-scm.com/doc
+
+Dev.to:
+  https://dev.to/chintanonweb/git-like-a-pro-10-things-i-regret-not-knowing-earlier-24kp
