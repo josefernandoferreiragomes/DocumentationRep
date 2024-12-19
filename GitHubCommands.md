@@ -1,16 +1,18 @@
 # Git Commands Quick Reference
 
 ## Basic Commands
+- **git status**: Show the working directory status.
+- **git pull**: Fetch and merge changes from a remote repository.
+- **git push**: Push changes to a remote repository.
+
 - **git init**: Initialize a new Git repository.
 - **git clone [url]**: Clone an existing repository.
-- **git status**: Show the working directory status.
 - **git add [file]**: Add a file to the staging area.
 - **git commit -m "[message]"**: Commit changes with a message.
-- **git push**: Push changes to a remote repository.
-- **git pull**: Fetch and merge changes from a remote repository.
 
 ## Branching
 - **git branch**: List branches.
+
 - **git branch [branch-name]**: Create a new branch.
 - **git checkout [branch-name]**: Switch to a branch.
 - **git merge [branch-name]**: Merge a branch into the current branch.
@@ -18,16 +20,20 @@
 
 ## Remote Repositories
 - **git remote -v**: List remote repositories.
-- **git remote add [name] [url]**: Add a new remote repository.
+
 - **git fetch [remote]**: Fetch changes from a remote repository.
-- **git push [remote] [branch]**: Push a branch to a remote repository.
 - **git pull [remote] [branch]**: Pull changes from a remote repository.
+- **git push [remote] [branch]**: Push a branch to a remote repository.
+  
+- **git remote add [name] [url]**: Add a new remote repository.
 
 ## Undoing Changes
 - **git reset [file]**: Unstage a file.
+- **git reset --hard [commit]**: Reset the working directory to a specific commit.
+- **git reset --hard**: Reset the working directory.
+- 
 - **git checkout -- [file]**: Discard changes in a file.
 - **git revert [commit]**: Revert a commit by creating a new commit.
-- **git reset --hard [commit]**: Reset the working directory to a specific commit.
 
 ## Viewing History
 - **git log**: Show commit history.
@@ -37,9 +43,10 @@
 
 ## Stashing
 - **git stash**: Stash changes in a dirty working directory.
+- **git stash drop**: Drop a specific stash.
+
 - **git stash apply**: Apply stashed changes.
 - **git stash list**: List all stashes.
-- **git stash drop**: Drop a specific stash.
 
 ## Tags
 - **git tag**: List tags.
