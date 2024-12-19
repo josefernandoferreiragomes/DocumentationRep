@@ -19,9 +19,8 @@
 - **git branch -d [branch-name]**: Delete a branch.
 
 ## Remote Repositories
-- **git remote -v**: List remote repositories.
-
-- ***git fetch [remote]***: Fetch changes from a remote repository.
+- **`git remote -v`**: List remote repositories.
+- **`git fetch [remote]`**: Fetch changes from a remote repository.
 - **git pull [remote] [branch]**: Pull changes from a remote repository.
 - **git push [remote] [branch]**: Push a branch to a remote repository.
 -
