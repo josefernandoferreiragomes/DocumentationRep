@@ -4,6 +4,7 @@
 - **`git status`**: Show the working directory status.
 - **`git pull`**: Fetch and merge changes from a remote repository.
 - **git add [file]**: Add a file to the staging area.
+- **git add .**: Adds all modified files to the staging area.
 - **git commit -m "[message]"**: Commit changes with a message.
 - **`git push`**: Push changes to a remote repository.
 - **git init**: Initialize a new Git repository.
