@@ -40,7 +40,6 @@
 ## Stashing
 - **`git stash`**: Stash changes in a dirty working directory.
 - **`git stash drop`**: Drop a specific stash.
-
 - **git stash apply**: Apply stashed changes.
 - **git stash list**: List all stashes.
 
