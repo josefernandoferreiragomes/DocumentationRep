@@ -1,18 +1,16 @@
 # Git Commands Quick Reference
 
 ## Basic Commands
-- **git status**: Show the working directory status.
-- **git pull**: Fetch and merge changes from a remote repository.
-- **git push**: Push changes to a remote repository.
--
+- **`git status`**: Show the working directory status.
+- **`git pull`**: Fetch and merge changes from a remote repository.
+- **`git push`**: Push changes to a remote repository.
 - **git init**: Initialize a new Git repository.
 - **git clone [url]**: Clone an existing repository.
 - **git add [file]**: Add a file to the staging area.
 - **git commit -m "[message]"**: Commit changes with a message.
 
 ## Branching
-- **git branch**: List branches.
--
+- **`git branch`**: List branches.
 - **git branch [branch-name]**: Create a new branch.
 - **git checkout [branch-name]**: Switch to a branch.
 - **git merge [branch-name]**: Merge a branch into the current branch.
@@ -27,10 +25,9 @@
 - **git remote add [name] [url]**: Add a new remote repository.
 
 ## Undoing Changes
-- **git reset [file]**: Unstage a file.
-- **git reset --hard [commit]**: Reset the working directory to a specific commit.
-- **git reset --hard**: Reset the working directory.
-- 
+- **`git reset [file]`**: Unstage a file.
+- **`git reset --hard`**: Reset the working directory.
+- **`git reset --hard [commit]`**: Reset the working directory to a specific commit.
 - **git checkout -- [file]**: Discard changes in a file.
 - **git revert [commit]**: Revert a commit by creating a new commit.
 
@@ -41,12 +38,19 @@
 - **git show [commit]**: Show changes in a specific commit.
 
 ## Stashing
-- **git stash**: Stash changes in a dirty working directory.
-- **git stash drop**: Drop a specific stash.
+- **`git stash`**: Stash changes in a dirty working directory.
+- **`git stash drop`**: Drop a specific stash.
 
 - **git stash apply**: Apply stashed changes.
 - **git stash list**: List all stashes.
 
+## Rename, move
+- **`git mv old-filename new-filename`**: Rename a file
+- **`git mv filename path/to/new-directory/`**: Move a file to a different directory
+- **`git mv old-filename path/to/new-directory/new-filename`**: Move and rename a file:
+- **`git mv old-directory-name new-directory-name`**: Rename a directory
+- **`git mv old-directory-name path/to/new-directory/`**: Move a directory
+  
 ## Tags
 - **git tag**: List tags.
 - **git tag [tag-name]**: Create a new tag.
