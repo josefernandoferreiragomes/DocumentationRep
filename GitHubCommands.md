@@ -4,7 +4,7 @@
 - **git status**: Show the working directory status.
 - **git pull**: Fetch and merge changes from a remote repository.
 - **git push**: Push changes to a remote repository.
-
+-
 - **git init**: Initialize a new Git repository.
 - **git clone [url]**: Clone an existing repository.
 - **git add [file]**: Add a file to the staging area.
@@ -12,7 +12,7 @@
 
 ## Branching
 - **git branch**: List branches.
-
+-
 - **git branch [branch-name]**: Create a new branch.
 - **git checkout [branch-name]**: Switch to a branch.
 - **git merge [branch-name]**: Merge a branch into the current branch.
@@ -21,10 +21,10 @@
 ## Remote Repositories
 - **git remote -v**: List remote repositories.
 
-- **git fetch [remote]**: Fetch changes from a remote repository.
+- ***git fetch [remote]***: Fetch changes from a remote repository.
 - **git pull [remote] [branch]**: Pull changes from a remote repository.
 - **git push [remote] [branch]**: Push a branch to a remote repository.
-  
+-
 - **git remote add [name] [url]**: Add a new remote repository.
 
 ## Undoing Changes
