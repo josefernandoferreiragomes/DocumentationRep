@@ -1,5 +1,8 @@
 # Linux Bash Commands Cheat Sheet
 
+### Once inside the Linux environment, you can use Linux commands just like you would in a regular Linux terminal. For example:
+- `cd /mnt/c`  # Access Windows files from /mnt directory
+
 ## **1. File and Directory Management**
 - `ls` – List directory contents.
   ```bash
