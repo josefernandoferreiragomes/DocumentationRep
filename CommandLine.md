@@ -37,6 +37,9 @@
   find /path -name "file.txt"
   ```
 
+## **1.1 Combinations, using pipes
+- `find -name "*.json*" | grep "CompllianceReport"` - Combine find with grep, using a pipe
+
 ## **2. File Viewing and Editing**
 - `cat` – View file contents.
   ```bash
