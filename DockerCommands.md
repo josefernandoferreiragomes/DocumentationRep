@@ -58,6 +58,9 @@ docker logs <container_id>
 # Inspect container details
 docker inspect <container_id>
 
+# Inspect container details and find a keyword
+docker inspect <container_id> | findstr <keyword>
+
 # Access a running container's shell
 docker exec -it <container_id> /bin/bash
 ```
