@@ -55,6 +55,9 @@ docker rm <container_id>
 # View container logs
 docker logs <container_id>
 
+# View container logs and filter
+docker logs <container_id> 2>&1 | grep <keyword>
+
 # Inspect container details
 docker inspect <container_id>
 
