@@ -44,6 +44,8 @@
 - **`git stash drop`**: Drop a specific stash.
 - **git stash apply**: Apply stashed changes.
 - **git stash list**: List all stashes.
+- **git stash pop**: Apply the most recent stash.
+- **git stash push**: Temporarily save your changes without committing them.
 
 ## Rename, move
 - **`git mv old-filename new-filename`**: Rename a file
