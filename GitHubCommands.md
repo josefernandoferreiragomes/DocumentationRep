@@ -9,6 +9,7 @@
 - **`git push`**: Push changes to a remote repository.
 - **git init**: Initialize a new Git repository.
 - **git clone [url]**: Clone an existing repository.
+- **git remote show origin**: Show remote origin
 
 ## Branching
 - **`git branch`**: List branches.
