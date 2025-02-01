@@ -29,6 +29,8 @@
 |---------|----------|
 | Break Line | `Enter` or `Shift + Enter` |
 | Collapse to Definitions | `Ctrl + M, Ctrl + O` |
+| Expand Definitions | `Ctrl + M, Ctrl + P` |
+| Expand Definitions around cursor | `Ctrl + M, Ctrl + M` |
 | Go To All | `Ctrl + T` |
 | Go to Recent Files | `Ctrl + 1, R` |
 | IntelliSense Suggestion Mode | `Ctrl + Alt + Space` |
@@ -39,6 +41,7 @@
 | Surround With | `Ctrl + K, S` |
 | Toggle Multi-caret | `Ctrl + Alt + Click` |
 | Zoom In/Out | `Ctrl + Shift + > / <` |
+| Clipboard history | `Win + v` |
 
 ## Window Management
 | Command | Shortcut |
@@ -50,14 +53,16 @@
 | Show Jump List | `Win + Alt + N` |
 | Start New Instance | `Win + Shift + N` |
 | Switch Between Windows | `Win + N` |
+| Show Developer Powershell (Terminal)  | `Ctrl + ç` |
 
 ## Search
 | Command | Shortcut |
 |---------|----------|
-| Place Focus in Search Box | `Ctrl + ;` |
+| Place Focus in Search Box | `Ctrl + ,` |
 | Search Visual Studio | `Ctrl + Q` |
 | Search in Tools Options | `Ctrl + E` |
 | Find in Files | `Ctrl + Shift + F` |
 
 We may customize these shortcuts in Visual Studio by navigating to `Tools > Options > Environment > Keyboard`
 We can also find a printable cheatsheet on the [Microsoft Learn website](https://learn.microsoft.com/en-us/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio?view=vs-2022)
+And related videos on https://www.youtube.com/watch?v=nhEHXQGVmaQ
