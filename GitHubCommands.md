@@ -27,6 +27,7 @@
 - **git remote add [name] [url]**: Add a new remote repository.
 
 ## Undoing Changes
+- **`git reset --soft HEAD`**: Unstage checked in changes, back into staged status.
 - **`git reset [file]`**: Unstage a file.
 - **`git reset --hard`**: Reset the working directory.
 - **`git reset --hard [commit]`**: Reset the working directory to a specific commit.
