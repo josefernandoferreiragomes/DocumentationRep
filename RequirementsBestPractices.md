@@ -1,8 +1,11 @@
 # Improving Requirements for User Stories
 
 How to improve requirements such as:
+
+```bash
 Title: UserManagement
 Description: Add the y request field
+```
 
 Such specification is leaving room for ambiguity, which can slow development and create potential errors. Improving the structure and clarity of your requirements will definitely help your team work more efficiently. Here are some actionable steps to enhance your requirements:
 
