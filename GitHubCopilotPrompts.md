@@ -55,7 +55,7 @@ By integrating Copilot into daily workflows, you can focus on high-impact tasks 
    - _"Generate xUnit tests for the `SaveCustomer` method in `CustomerService`, using a mocked `ICustomerRepository`."_
 
 
-## Official references and recommendations that align with the points I made about leveraging GitHub Copilot in .NET API development:
+## Official references and recommendations:
 
 1. **[Enhance Your .NET Developer Productivity with GitHub Copilot](https://devblogs.microsoft.com/dotnet/enhance-your-dotnet-developer-productivity-with-github-copilot/)**  
    This blog post from the official .NET Blog highlights how GitHub Copilot can boost productivity for .NET developers. It discusses features like intelligent code suggestions, error resolution, and concise code summaries, which are particularly useful for tasks like code generation, refactoring, and testing.
