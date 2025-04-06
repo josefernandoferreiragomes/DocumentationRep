@@ -4,10 +4,12 @@ How to improve requirements such as:
 
 ```bash
 Title: UserManagement
-Description: Add the y request field
+Description: Add the phone number field
 ```
 
-Such specification is leaving room for ambiguity, which can slow development and create potential errors. Improving the structure and clarity of your requirements will definitely help your team work more efficiently. Here are some actionable steps to enhance your requirements:
+Such specification is leaving room for ambiguity, which can slow development and create potential errors. Improving the structure and clarity of the requirements will definitely help the team work more efficiently.
+
+The requirements can be enhanced by the following steps:
 
 ## 1. Standardize User Story Templates
 Use a consistent format for user stories that includes the following key elements:
