@@ -52,4 +52,18 @@ By integrating Copilot into daily workflows, you can focus on high-impact tasks 
 
 6. **For Mocking Dependencies:**
    - _"Write xUnit test cases for the `SendEmail` method in `EmailService`, mocking the dependency on `SmtpClient`."_  
-   - _"Generate xUnit tests for the `SaveCustomer` method in `CustomerService`, using a mocked `ICustomerRepository`."_  
+   - _"Generate xUnit tests for the `SaveCustomer` method in `CustomerService`, using a mocked `ICustomerRepository`."_
+
+
+## Official references and recommendations that align with the points I made about leveraging GitHub Copilot in .NET API development:
+
+1. **[Enhance Your .NET Developer Productivity with GitHub Copilot](https://devblogs.microsoft.com/dotnet/enhance-your-dotnet-developer-productivity-with-github-copilot/)**  
+   This blog post from the official .NET Blog highlights how GitHub Copilot can boost productivity for .NET developers. It discusses features like intelligent code suggestions, error resolution, and concise code summaries, which are particularly useful for tasks like code generation, refactoring, and testing.
+
+2. **[Introducing Code Referencing for GitHub Copilot Completions in Visual Studio](https://devblogs.microsoft.com/visualstudio/introducing-code-referencing-for-github-copilot-completions-in-visual-studio/)**  
+   This article from the Visual Studio Blog introduces features like code referencing and public code match, which ensure transparency and consistency in coding practices. These features support collaboration and code review processes.
+
+3. **[Tips and Tricks for Copilot in VS Code](https://code.visualstudio.com/docs/copilot/copilot-tips-and-tricks)**  
+   This guide provides practical tips for optimizing GitHub Copilot in Visual Studio Code. It includes advice on writing effective prompts, personalizing Copilot for team workflows, and using it for tasks like rapid prototyping and testing.
+
+These resources provide detailed insights into how GitHub Copilot can be effectively integrated into .NET API development workflows.
