@@ -108,3 +108,10 @@ Behavior-Driven Development (BDD) is a collaborative approach that bridges the g
 - This makes it easier for team members to read and understand.
 
 By following these guidelines, your team can create clear, testable, and collaborative requirements that align with BDD principles.
+
+# Sources on BDD standards and best practices:
+
+## 1. [BDD Guidelines and Best Practices - DevQA.io](https://devqa.io/bdd-guidelines-best-practices/): This article provides a comprehensive overview of BDD, including tips for writing effective scenarios and structuring feature files.
+   
+## 3. [Writing Better Gherkin - Cucumber](https://cucumber.io/docs/bdd/better-gherkin/): A guide to improving Gherkin syntax, focusing on writing clear and maintainable scenarios.
+## 4. [Gherkin, BDD, & Cucumber: Behavior-Driven Development Guide](https://testquality.com/gherkin-bdd-cucumber-guide-to-behavior-driven-development/): A practical guide to implementing BDD with tools like Gherkin and Cucumber, emphasizing collaboration and clarity.
