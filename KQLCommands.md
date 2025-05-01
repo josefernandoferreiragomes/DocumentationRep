@@ -1,7 +1,26 @@
-# SQL to KQL Quick Reference (Markdown Version)
+# SQL to KQL Quick Reference
 
-|   |
-| - |
+This guide explains how common SQL concepts map to KQL (Kusto Query Language) syntax.
+
+- `SELECT * FROM Table` becomes just the table name: `Table`
+- `SELECT col1, col2 FROM Table` becomes: `Table | project col1, col2`
+- `WHERE` clause uses `where`: `Table | where col == "value"`
+- Logical operators: `AND` / `OR` become `and` / `or`
+- `ORDER BY col ASC` is `| sort by col asc`, and DESC is `| sort by col desc`
+- `LIMIT 10` or `TOP 10` is `| take 10`
+- Aggregates like `COUNT(*)`, `AVG(col)`, `SUM(col)` use `| summarize count()`, etc.
+- Grouping is done with `summarize` and `by`: `| summarize count() by col`
+- `JOIN` syntax: `Table1 | join kind=inner Table2 on common_field`
+- Set operators like `IN` and `NOT IN` become: `| where col in ("value1", "value2")`
+- Null checks use `isnull()` and `isnotnull()`
+- Pattern matching: `LIKE '%text%'` is `contains`, `LIKE 'text%'` is `startswith`, `LIKE '%text'` is `endswith`
+- `BETWEEN val1 AND val2` becomes: `| where col between (val1 .. val2)`
+- Subqueries use `let`: define a temporary table and reuse it
+- `CASE WHEN` becomes `extend newcol = case(...)`
+- `DISTINCT col1, col2` is `| distinct col1, col2`
+- `UPDATE`, `DELETE` are **not supported** in KQL (read-only language)
+
+---
 
 | **SQL**                              | **KQL**                                                            |
 | ------------------------------------ | ------------------------------------------------------------------ |
@@ -62,3 +81,24 @@ TempTable
 | take 5
 ```
 
+## Example KQL Query Using `let` With an Inline String List
+
+```kql
+// Define an inline list of valid status strings
+let ValidStatuses = dynamic(["Active", "Pending", "InReview"]);
+
+// Filter a table using that list
+MyTable
+| where Status in (ValidStatuses)
+| project Id, Name, Status
+```
+
+**Explanation:**
+
+- `let` defines a reusable variable (`ValidStatuses`) as a dynamic array (string list).
+- The `in (...)` syntax is then used to filter records where the `Status` column is one of the items in the list.
+
+This approach is great for cleaner and more reusable filters, especially if the list is long or reused across multiple parts of the query.
+
+### References
+https://learn.microsoft.com/en-us/kusto/query/kql-quick-reference?view=microsoft-fabric
