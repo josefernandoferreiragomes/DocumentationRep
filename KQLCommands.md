@@ -43,6 +43,7 @@ This guide explains how common SQL concepts map to KQL (Kusto Query Language) sy
 | `IS NULL`                            | `Table \| where isnull(col)`                                       |
 | `IS NOT NULL`                        | `Table \| where isnotnull(col)`                                    |
 | `LIKE '%text%'`                      | `Table \| where col contains "text"`                               |
+| `LIKE '%word%'`                      | `Table \| where col has "word"`                               |
 | `LIKE 'text%'`                       | `Table \| where col startswith "text"`                             |
 | `LIKE '%text'`                       | `Table \| where col endswith "text"`                               |
 | `BETWEEN val1 AND val2`              | `Table \| where col between (val1 .. val2)`                        |
