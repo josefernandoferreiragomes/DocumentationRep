@@ -34,6 +34,7 @@ app.UseResponseCompression();
 
 🔗 Microsoft Docs – Response Compression Middleware
 
+<https://learn.microsoft.com/en-us/aspnet/core/performance/response-compression?view=aspnetcore-9.0>
 
 ---
 
@@ -67,11 +68,11 @@ Accept-Encoding: gzip
 
 ASP.NET Core Response Compression Middleware (Microsoft Docs)
 
+<https://learn.microsoft.com/en-us/aspnet/core/performance/response-compression?view=aspnetcore-9.0>
+
 Azure APIM Policy Sample for Gzip
 
+<https://learn.microsoft.com/en-us/answers/questions/502806/gzip-compression-decompression-with-api-management?utm_source=chatgpt.com>
 
 
 ---
-
-Let me know if you'd like a full working API example or a downloadable .http or Postman collection!
-
