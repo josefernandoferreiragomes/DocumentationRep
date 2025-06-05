@@ -212,3 +212,15 @@ public static class DeadLetterProcessorFunction
 ✅ **Monitor with Application Insights** to analyze message flow.  
 
 ---
+
+## References
+
+- **Azure Service Bus Documentation**: Learn about messaging, topics, subscriptions, and advanced configurations [here](https://learn.microsoft.com/en-us/azure/service-bus-messaging/).
+  
+- **Azure Service Bus Product Page**: Overview of features, pricing, and capabilities [here](https://azure.microsoft.com/en-us/products/service-bus/).
+  
+- **Azure Functions Documentation**: Explore triggers, bindings, and serverless computing [here](https://learn.microsoft.com/en-us/azure/azure-functions/).
+  
+- **Azure Functions Product Page**: Learn about serverless execution and integration [here](https://azure.microsoft.com/en-us/products/functions/).
+
+---
