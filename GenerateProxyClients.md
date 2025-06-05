@@ -1,3 +1,103 @@
+# Using NSwag with Visual Studio
+
+NSwag is a powerful tool for generating client code and API documentation. Below is a step-by-step guide on how to use NSwag effectively in Visual Studio.
+
+## 1. Install NSwag
+
+### Install via NuGet
+In Visual Studio, install NSwag using NuGet:
+1. Open NuGet Package Manager (`Manage NuGet Packages`).
+2. Search for `NSwag` or `NSwag.AspNetCore` (if using ASP.NET Core).
+3. Install the package.
+
+### Install NSwag CLI (Optional)
+If you want to use NSwag via the terminal, install the CLI version:
+1. **Without admin access**: Download `nswag.zip` from [GitHub Releases](https://github.com/RicoSuter/NSwag/releases).
+2. Extract the files to your local directory.
+3. Run the executable:
+   ```cmd
+   cd C:\Users\<YourUsername>\Tools\NSwag
+   nswag.exe help
+   ```
+4. (Optional) Add it to PATH for easier access:
+   ```cmd
+   set PATH=%PATH%;C:\Users\<YourUsername>\Tools\NSwag
+   ```
+
+## 2. Configure Swagger in Your Project
+Ensure that Swagger is correctly set up in your ASP.NET Core project.
+
+```csharp
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+});
+```
+
+## 3. Generate Client Code
+Use NSwag to generate API client code.
+
+### Via NSwag Studio
+- Open NSwag Studio.
+- Load your `swagger.json` API definition.
+- Configure output settings (C# or TypeScript).
+- Click "Generate" and save the file in your project.
+
+### Via Command Line
+Run NSwag CLI with specific parameters:
+
+```cmd
+nswag run /command:swagger2csclient /input:"https://api.example.com/swagger.json" /output:"GeneratedApiClient.cs" /language:CSharp /namespace:MyApp.ApiClients
+```
+
+**Explanation**:
+- `swagger2csclient`: Generates a C# client.
+- `/input`: API definition URL.
+- `/output`: Output filename.
+- `/language`: Specifies `CSharp` or `TypeScript`.
+- `/namespace`: Defines the namespace.
+
+## 4. Creating Individual CMD Files for REST Clients
+For each REST API, create a separate `.cmd` file containing the generation command.
+
+### Example: Generate Client for a Specific REST API 
+Save the following in a file like `GenerateApiClient1.cmd`:
+
+## 5. Automate Multiple API Clients
+You can create `.cmd` files to update multiple client proxies at once.
+
+Example `GenerateApiClients.cmd` file:
+
+```cmd
+@echo off
+call GenerateApiClient1.cmd
+call GenerateApiClient2.cmd
+call GenerateApiClient3.cmd
+echo All proxies updated successfully!
+pause
+```
+
+## 6. Customizations
+### Authentication Headers
+If your API requires authentication, add headers:
+
+```cmd
+nswag run /command:swagger2csclient /input:"https://api.example.com/swagger.json" /output:"GeneratedApiClient.cs" /language:CSharp /headers:"Authorization=Bearer YOUR_ACCESS_TOKEN"
+```
+
+### Generate TypeScript Clients
+For frontend applications, generate TypeScript clients:
+
+```cmd
+nswag run /command:swagger2tsclient /input:"https://api.example.com/swagger.json" /output:"GeneratedApiClient.ts" /language:TypeScript
+```
+
+---
+
+## 🔗 Official Documentation
+[NSwag documentation](https://github.com/RicoSuter/NSwag) [Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/core/additional-tools/nswag-guide).
+
 # Generating SOAP Proxy Clients Using `dotnet-svcutil`
 
 ## 1. Install `dotnet-svcutil`
