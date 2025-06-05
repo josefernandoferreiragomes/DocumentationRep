@@ -64,6 +64,10 @@ For each REST API, create a separate `.cmd` file containing the generation comma
 ### Example: Generate Client for a Specific REST API 
 Save the following in a file like `GenerateApiClient1.cmd`:
 
+```cmd
+nswag run /command:swagger2csclient /input:"https://api.example.com/swagger.json" /output:"GeneratedApiClient.cs" /language:CSharp /namespace:MyApp.ApiClients
+```
+
 ## 5. Automate Multiple API Clients
 You can create `.cmd` files to update multiple client proxies at once.
 
