@@ -51,3 +51,7 @@ Use `--serviceName` to target a specific service contract within the WSDL:
 ```cmd
 dotnet-svcutil https://example.com/service.wsdl --outputDir "GeneratedClients" --namespace "MyApp.Services" --targetFramework net8.0 --serviceName "MyServiceContract"
 ```
+## References
+[Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/core/additional-tools/dotnet-svcutil-guide)
+
+[GitHub repository](https://github.com/dotnet/docs/blob/main/docs/core/additional-tools/dotnet-svcutil-guide.md)
