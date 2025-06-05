@@ -4,6 +4,132 @@
 Msft VS Live Azure Functions 
 https://youtu.be/82QnxMp8PRY?si=Fa819UwqroaCfkTT
 
+---
+
+# 📌 **Publish-Subscribe Pattern in Azure Service Bus**
+The **pub-sub pattern** allows multiple consumers to receive messages from a single publisher without direct dependencies. This ensures **loose coupling**, scalability, and efficient event-driven processing.
+
+### **1. Key Concepts**
+| Concept | Description |
+|---------|------------|
+| **Topics** | A messaging entity where publishers send messages. Acts as a central hub for distributing events. |
+| **Subscriptions** | Virtual queues attached to topics. Each subscription receives a copy of messages that match its filtering rules. |
+| **Events** | Messages that represent occurrences or state changes, published to topics. |
+| **Messages** | The actual data payload sent by publishers and processed by subscribers. |
+| **Message TTL (Time-to-Live)** | Defines how long a message remains in the queue before expiring. |
+| **Message Lock Time** | Prevents duplicate processing by locking messages for a defined duration. |
+| **Dead-Letter Queue (DLQ)** | Stores messages that fail processing multiple times for later review. |
+
+---
+
+## 🏗 **How Publish-Subscribe Works in Azure Service Bus**
+1️⃣ **Publisher sends a message** to a **topic**.  
+2️⃣ **Topic distributes the message** to all **subscriptions**.  
+3️⃣ **Subscriptions filter messages** based on rules (SQL or correlation filters).  
+4️⃣ **Subscribers process messages** asynchronously using Azure Functions or other services.  
+
+---
+
+## 🔍 **Example: Publishing Messages to a Topic**
+This **Azure Function** publishes messages to a **Service Bus topic**.
+
+```csharp
+public static class PublishEventFunction
+{
+    [FunctionName("PublishEventFunction")]
+    public static async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequest req,
+        ILogger log)
+    {
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        var messageObject = JsonSerializer.Deserialize<MessageModel>(requestBody);
+
+        await SendMessageToServiceBus(messageObject);
+
+        return new OkObjectResult("Message published successfully!");
+    }
+
+    private static async Task SendMessageToServiceBus(MessageModel message)
+    {
+        await using var client = new ServiceBusClient(Environment.GetEnvironmentVariable("ServiceBusConnectionString"));
+        ServiceBusSender sender = client.CreateSender("my-topic");
+
+        var serviceBusMessage = new ServiceBusMessage(JsonSerializer.Serialize(message));
+
+        await sender.SendMessageAsync(serviceBusMessage);
+    }
+}
+```
+
+---
+
+## 🔍 **Example: Subscriber Processing Messages**
+This **Azure Function subscriber** listens for messages on a **subscription**.
+
+```csharp
+public static class TopicSubscriberFunction
+{
+    [FunctionName("TopicSubscriberFunction")]
+    public static async Task Run(
+        [ServiceBusTrigger("my-topic", "my-subscription", Connection = "ServiceBusConnectionString")]
+        ServiceBusReceivedMessage message,
+        ILogger log)
+    {
+        var messageObject = JsonSerializer.Deserialize<MessageModel>(message.Body.ToString());
+
+        log.LogInformation($"Processing message ID: {messageObject.Id}, Content: {messageObject.Content}");
+
+        await ProcessMessage(messageObject);
+    }
+}
+```
+
+---
+
+## 🔍 **Message TTL & Lock Time**
+- **Message TTL (Time-to-Live)**: Defines how long a message remains in the queue before expiring.
+- **Message Lock Time**: Prevents duplicate processing by locking messages for a defined duration.
+
+---
+
+## 🚨 **Handling Dead-Letter Messages (DLQ)**
+A **dead-letter queue (DLQ)** stores **failed messages** for later processing.
+
+### 🎯 **Example: Processing Messages from Dead-Letter Queue**
+```csharp
+public static class DeadLetterProcessorFunction
+{
+    [FunctionName("DeadLetterProcessorFunction")]
+    public static async Task Run(
+        [ServiceBusTrigger("my-topic/$DeadLetterQueue", Connection = "ServiceBusConnectionString")]
+        ServiceBusReceivedMessage message,
+        ILogger log)
+    {
+        log.LogWarning($"Processing dead-letter message ID: {message.MessageId}");
+
+        var messageObject = JsonSerializer.Deserialize<MessageModel>(message.Body.ToString());
+        log.LogWarning($"Failed message details - ID: {messageObject.Id}, Content: {messageObject.Content}");
+
+        await StoreFailedMessage(messageObject);
+    }
+}
+```
+
+---
+
+## 📌 **Best Practices**
+✅ **Use dead-letter queues** for troubleshooting failed messages.  
+✅ **Filter messages efficiently** using SQL or correlation filters.  
+✅ **Implement retry logic** to handle transient failures.  
+✅ **Monitor with Application Insights** to analyze message flow.  
+
+---
+
+### 📚 **Official References**
+- [Azure Service Bus Messaging Overview](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions)  
+- [Publish-Subscribe Pattern with Azure Service Bus](https://www.serverlessnotes.com/docs/publish-subscribe-with-azure-service-bus)  
+- [Publisher-Subscriber Pattern in Azure](https://exploreazurecloud.com/publisher-subscriber-pattern-in-azure-part-1)  
+
 # Azure Service Bus & Azure Functions Training Guide
 
 ## 📌 Overview
