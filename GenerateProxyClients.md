@@ -261,6 +261,7 @@ Make sure to have Windows Communication Foundation workload installed
 In **SoapServer**, add the following NuGet packages:
    
    ```cmd
+   dotnet add SoapServer package CoreWCF
    dotnet add SoapServer package CoreWCF.Http
    dotnet add SoapServer package CoreWCF.Primitives
    ```
