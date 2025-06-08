@@ -369,6 +369,11 @@ pause
 
 ## 4. Consume the Generated Proxies in the Client Application
 
+Install Newtonsoft.Json
+```bash
+dotnet add democlient package newtonsoft.json
+```
+
 After running the command files, the **DemoClient** project will contain:
 
 - A file named `GeneratedApiClient.cs` (from NSwag) in the namespace `DemoClient.ApiProxies`.
