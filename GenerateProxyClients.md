@@ -200,9 +200,6 @@ dotnet new webapi -n ApiServer
 :: Create the console client project (DemoClient)
 dotnet new console -n DemoClient
 
-:: Create the SOAP service project (SoapServer)
-:: (For SOAP, we’ll use CoreWCF in an ASP.NET Core “empty” web project)
-dotnet new web -n SoapServer
 ```
 
 Then add all projects to the solution:
@@ -256,6 +253,15 @@ app.Run();
 ### 2.2. **SoapServer** – Create a Simple SOAP Service Using CoreWCF
 
 Make sure to have Windows Communication Foundation workload installed
+Make sure to have the coreWCF template installed
+```bash
+dotnet new install CoreWCF.Templates
+```
+New project
+```bash
+dotnet new corewcf --name MyService
+```
+Reference: https://github.com/CoreWCF/CoreWCF
 
 1. **Add CoreWCF Packages**  
 In **SoapServer**, add the following NuGet packages:
