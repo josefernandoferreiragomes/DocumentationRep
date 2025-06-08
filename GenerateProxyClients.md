@@ -219,6 +219,15 @@ dotnet sln add SoapServer/SoapServer.csproj
 
 ### 2.1. **ApiServer** – Enable Swagger
 
+Open the NuGet Package Manager in Visual Studio or use the Package Manager Console to install the Swashbuckle.AspNetCore package:
+Using Package Manager Console:
+```bash
+   Install-Package Swashbuckle.AspNetCore
+```
+.NET CLI
+```bash
+   dotnet add package Swashbuckle.AspNetCore
+```
 Open the `Program.cs` file in **ApiServer** and ensure Swagger is configured. For example, modify it as follows:
 
 ```csharp
