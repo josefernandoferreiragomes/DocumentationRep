@@ -255,6 +255,8 @@ app.Run();
 
 ### 2.2. **SoapServer** – Create a Simple SOAP Service Using CoreWCF
 
+Make sure to have Windows Communication Foundation workload installed
+
 1. **Add CoreWCF Packages**  
 In **SoapServer**, add the following NuGet packages:
    
