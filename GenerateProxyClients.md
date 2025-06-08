@@ -207,7 +207,6 @@ Then add all projects to the solution:
 ```cmd
 dotnet sln add ApiServer/ApiServer.csproj
 dotnet sln add DemoClient/DemoClient.csproj
-dotnet sln add SoapServer/SoapServer.csproj
 ```
 
 ---
@@ -261,6 +260,12 @@ New project
 ```bash
 dotnet new corewcf --name MyService
 ```
+
+Add project to solution
+```bash
+dotnet sln add SoapServer/SoapServer.csproj
+```
+
 Reference: https://github.com/CoreWCF/CoreWCF
 
 1. **Add CoreWCF Packages**  
