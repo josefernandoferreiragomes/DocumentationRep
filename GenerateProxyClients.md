@@ -381,9 +381,10 @@ pause
 
 ## 4. Consume the Generated Proxies in the Client Application
 
-Install Newtonsoft.Json
+Install Newtonsoft.Json and System.ServiceModel
 ```bash
 dotnet add democlient package newtonsoft.json
+dotnet add package System.ServiceModel
 ```
 
 After running the command files, the **DemoClient** project will contain:
