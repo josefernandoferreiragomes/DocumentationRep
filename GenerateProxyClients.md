@@ -489,6 +489,4 @@ class Program
 ---
 
 By following these steps, you now have a demonstration app that illustrates how to use command-line scripts to generate both API and web service proxies and consume them from a client project.
-
-Feel free to modify and extend this sample to suit your needs or to explore further advanced customizations!  
 ```
