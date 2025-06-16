@@ -1,12 +1,8 @@
-# Caching strategies 
-
-🔁 Caching Patterns
+# Caching strategies / patterns
 
 1. Cache-Aside (Lazy Loading)
 
-✅ Common, flexible.
-
-❌ Risk of cache-miss penalty.
+Common, flexible. But risk of cache-miss penalty.
 
 
 > App loads from DB, then updates cache.
@@ -65,10 +61,9 @@ Event-based (on writes/deletes)
 Manual (explicit RemoveAsync)
 
 
-
 ---
 
-🧱 
+### Cache aside example:
 
 ```csharp
 // Program.cs
