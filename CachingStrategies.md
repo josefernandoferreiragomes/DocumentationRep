@@ -164,6 +164,8 @@ public class RedisCacheService
     }
 }
 
+```
+Steps:
 
 A ProductService that attempts to load a product from Redis cache first.
 
@@ -173,7 +175,6 @@ A RedisCacheService wrapper for JSON serialization/deserialization.
 
 A minimal API endpoint /products/{id}.
 
-```
 
 ## Sources
 
