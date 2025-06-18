@@ -129,6 +129,8 @@ public static class DeadLetterProcessorFunction
 - [Azure Service Bus Messaging Overview](https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions)  
 - [Publish-Subscribe Pattern with Azure Service Bus](https://www.serverlessnotes.com/docs/publish-subscribe-with-azure-service-bus)  
 - [Publisher-Subscriber Pattern in Azure](https://exploreazurecloud.com/publisher-subscriber-pattern-in-azure-part-1)  
+- [Dead Letter Queue Overview]
+(https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dead-letter-queues)
 
 # Azure Service Bus & Azure Functions Training Guide
 
