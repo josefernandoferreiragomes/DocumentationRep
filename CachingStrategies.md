@@ -71,6 +71,10 @@ public class ProductService
 * Limited by application memory and scope (single instance).
 * Cache invalidation on application restart.
 
+### Resources
+
+https://learn.microsoft.com/hi-in/dotnet/api/microsoft.extensions.caching.memory.imemorycache?view=net-9.0-pp&viewFallbackFrom=dotnet-plat-ext-5.0&utm_source=chatgpt.com
+
 ---
 
 ## 1.2. Distributed Caching (Redis)
@@ -130,6 +134,10 @@ public class OrderService
 * Network latency compared to in-memory.
 * Operational overhead (Redis management).
 
+### Resources
+
+https://learn.microsoft.com/en-gb/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache?view=net-9.0-pp&utm_source=chatgpt.com
+
 ---
 
 ## 1.3. Response Caching
@@ -161,6 +169,10 @@ public IActionResult Index()
 
 * Less control over granular data caching.
 * Stale content risks if not properly invalidated.
+
+### Resources
+
+https://learn.microsoft.com/en-us/aspnet/core/performance/caching/response?view=aspnetcore-9.0&utm_source=chatgpt.com
 
 ---
 
