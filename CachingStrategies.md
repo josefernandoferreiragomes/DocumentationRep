@@ -5,10 +5,13 @@ A comprehensive tutorial on various caching strategies you can implement in .NET
 ## Table of Contents
 
 1. Types of cache, that operate at different levels
+   
 1.1. [In-Memory Caching (MemoryCache)](#in-memory-caching)
 1.2. [Distributed Caching (Redis)](#distributed-caching)
 1.3. [Response Caching](#response-caching)
-2. Caching strategies
+
+3. Caching strategies
+
 2.1. [Cache-Aside Pattern](#cache-aside-pattern)
 2.2. [Read-Through Cache](#read-through-cache)
 2.3. [Write-Through Cache](#write-through-cache)
