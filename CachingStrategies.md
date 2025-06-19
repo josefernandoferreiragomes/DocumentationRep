@@ -4,17 +4,19 @@ A comprehensive tutorial on various caching strategies you can implement in .NET
 
 ## Table of Contents
 
-1. [In-Memory Caching (MemoryCache)](#in-memory-caching)
-2. [Distributed Caching (Redis)](#distributed-caching)
-3. [Response Caching](#response-caching)
-4. [Cache-Aside Pattern](#cache-aside-pattern)
-5. [Read-Through Cache](#read-through-cache)
-6. [Write-Through Cache](#write-through-cache)
-7. [Write-Behind (Write-Back) Cache](#write-behind-cache)
+1. Types of cache, that operate at different levels
+1.1. [In-Memory Caching (MemoryCache)](#in-memory-caching)
+1.2. [Distributed Caching (Redis)](#distributed-caching)
+1.3. [Response Caching](#response-caching)
+2. Caching strategies
+2.1. [Cache-Aside Pattern](#cache-aside-pattern)
+2.2. [Read-Through Cache](#read-through-cache)
+2.3. [Write-Through Cache](#write-through-cache)
+2.4. [Write-Behind (Write-Back) Cache](#write-behind-cache)
 
 ---
 
-## 1. In-Memory Caching (MemoryCache)
+## 1.1. In-Memory Caching (MemoryCache)
 
 **How it Works:**
 
@@ -63,7 +65,7 @@ public class ProductService
 
 ---
 
-## 2. Distributed Caching (Redis)
+## 1.2. Distributed Caching (Redis)
 
 **How it Works:**
 
@@ -122,7 +124,7 @@ public class OrderService
 
 ---
 
-## 3. Response Caching
+## 1.3. Response Caching
 
 **How it Works:**
 
@@ -154,7 +156,9 @@ public IActionResult Index()
 
 ---
 
-## 4. Cache-Aside Pattern
+# 2. Caching Strategies
+
+## 2.1. Cache-Aside Pattern
 
 **How it Works:**
 
@@ -192,7 +196,7 @@ public async Task<Product> GetProductAsync(int id)
 
 ---
 
-## 5. Read-Through Cache
+## 2.2. Read-Through Cache
 
 **How it Works:**
 
@@ -234,7 +238,7 @@ public class CustomerService
 
 ---
 
-## 6. Write-Through Cache
+## 2.3. Write-Through Cache
 
 **How it Works:**
 
@@ -265,7 +269,7 @@ public async Task UpdateProductAsync(Product p)
 
 ---
 
-## 7. Write-Behind (Write-Back) Cache
+## 2.4. Write-Behind (Write-Back) Cache
 
 **How it Works:**
 
