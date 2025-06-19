@@ -321,6 +321,37 @@ public async Task UpdateOrderAsync(Order o)
 
 ---
 
+**Official Resources:**
+
+* **Cache-Aside Pattern**
+
+  * Microsoft documentation: Architecture patterns - Cache-aside pattern
+    [https://learn.microsoft.com/azure/architecture/patterns/cache-aside](https://learn.microsoft.com/azure/architecture/patterns/cache-aside)
+  * AWS Developer Guide: Caching strategies - Cache-aside
+    [https://docs.aws.amazon.com/whitepapers/latest/aws-overview/caching.html#cache-aside-pattern](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/caching.html#cache-aside-pattern)
+
+* **Read-Through Cache**
+
+  * Microsoft article on distributed caching with read-through support:
+    [https://learn.microsoft.com/aspnet/core/performance/caching/distributed#read-through-caching](https://learn.microsoft.com/aspnet/core/performance/caching/distributed#read-through-caching)
+  * Redis official documentation: Client-Side Caching (Read-Through Cache)
+    [https://redis.io/docs/manual/client-side-caching/](https://redis.io/docs/manual/client-side-caching/)
+
+* **Write-Through Cache**
+
+  * Microsoft guide: Write-through caching with Azure Cache for Redis
+    [https://learn.microsoft.com/azure/azure-cache-for-redis/cache-design-patterns#write-through](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-design-patterns#write-through)
+  * Redis Labs blog: Write-Through and Write-Back Caching Patterns
+    [https://redis.com/blog/write-through-write-back-caching/](https://redis.com/blog/write-through-write-back-caching/)
+
+* **Write-Behind (Write-Back) Cache**
+
+  * Microsoft documentation: Architecture patterns - Write-behind cache
+    [https://learn.microsoft.com/azure/architecture/patterns/write-behind-cache](https://learn.microsoft.com/azure/architecture/patterns/write-behind-cache)
+  * NCache documentation: Write-behind caching
+    [https://www.alachisoft.com/resources/docs/ncache/design/write-behind-caching.html](https://www.alachisoft.com/resources/docs/ncache/design/write-behind-caching.html)
+
+
 ## Conclusion
 
 Choosing the right caching strategy depends on your application’s scale, consistency requirements, and infrastructure. Combine strategies (e.g., in-memory + distributed) for optimal performance. Always monitor cache performance and hit rates, and plan an invalidation strategy to avoid stale data.
