@@ -6,7 +6,7 @@ A comprehensive tutorial on various caching strategies you can implement in .NET
 
 1. Types of cache, that operate at different levels
    
-1.1. [In-Memory Caching (MemoryCache)](#in-memory-caching)
+   1.1. [In-Memory Caching (MemoryCache)](#in-memory-caching)
 
 1.2. [Distributed Caching (Redis)](#distributed-caching)
 
