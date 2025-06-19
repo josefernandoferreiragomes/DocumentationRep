@@ -73,7 +73,7 @@ public class ProductService
 
 ### Resources
 
-https://learn.microsoft.com/hi-in/dotnet/api/microsoft.extensions.caching.memory.imemorycache?view=net-9.0-pp&viewFallbackFrom=dotnet-plat-ext-5.0&utm_source=chatgpt.com
+https://learn.microsoft.com/hi-in/dotnet/api/microsoft.extensions.caching.memory.imemorycache?view=net-9.0-pp&viewFallbackFrom=dotnet-plat-ext-5.0
 
 ---
 
@@ -136,7 +136,7 @@ public class OrderService
 
 ### Resources
 
-https://learn.microsoft.com/en-gb/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache?view=net-9.0-pp&utm_source=chatgpt.com
+https://learn.microsoft.com/en-gb/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache?view=net-9.0-pp
 
 ---
 
@@ -172,7 +172,8 @@ public IActionResult Index()
 
 ### Resources
 
-https://learn.microsoft.com/en-us/aspnet/core/performance/caching/response?view=aspnetcore-9.0&utm_source=chatgpt.com
+https://learn.microsoft.com/en-us/aspnet/core/performance/caching/response?view=aspnetcore-9.0
+https://learn.microsoft.com/en-us/aspnet/core/performance/caching/middleware?view=aspnetcore-9.0
 
 ---
 
