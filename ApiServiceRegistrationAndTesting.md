@@ -31,7 +31,9 @@ Facilitates unit testing of DI validation
 
 Organize service registrations into extension methods based on layers (e.g., Application, Infrastructure, Web) or features (e.g., Orders, Users).
 
-📁 Example: Infrastructure/DependencyInjection.cs
+📁 Example: 
+```csharp
+Infrastructure/DependencyInjection.cs
 
 namespace MyApp.Infrastructure;
 
@@ -46,9 +48,9 @@ public static class InfrastructureServiceRegistration
         return services;
     }
 }
-
+```
 ✂️ Clean Program.cs
-
+```csharp
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
@@ -58,13 +60,9 @@ builder.Services
 
 var app = builder.Build();
 app.Run();
-
+```
 > 📘 Official guidance: Microsoft Learn – Dependency Injection in .NET
 
-
-
-
----
 
 2. ✅ Validating DI Configuration at Build-Time
 
