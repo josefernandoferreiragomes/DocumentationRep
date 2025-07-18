@@ -39,6 +39,7 @@
 
 ## **1.1 Combinations, using pipes
 - `find -name "*.json*" | grep "CompllianceReport"` - Combine find with grep, using a pipe
+- `ls -al | grep -i order` - list all files, including details, and then show only those with "order" in their name
 
 ## **2. File Viewing and Editing**
 - `cat` – View file contents.
