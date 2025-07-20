@@ -137,6 +137,7 @@ public class OrderService
 ### Resources
 
 https://learn.microsoft.com/en-gb/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache?view=net-9.0-pp
+https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/
 
 ---
 
