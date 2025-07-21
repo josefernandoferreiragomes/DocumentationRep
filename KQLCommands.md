@@ -101,5 +101,40 @@ MyTable
 
 This approach is great for cleaner and more reusable filters, especially if the list is long or reused across multiple parts of the query.
 
-### References
+## Other advanced scenarios
+
+A client calls gatewayUrl A
+A calls gatewayUrl B
+B calls the backend
+
+We're trying to detect when A is slow (≥ 60s) while B is fast (≤ 49s)
+
+1. You have one log table (LogTable) containing both requests.
+2. Requests are correlated using a shared field — typically traceparent, or something derived like operation_Id.
+3. gatewayUrl distinguishes A from B.
+4. Both A and B log their own timeTaken.
+
+```kql
+// Step 1: Find all requests to gatewayUrl A that took > 59s
+let SlowA = LogTable
+| where gatewayUrl contains "A"
+  and timeTaken > 59s
+| project A_traceparent = traceparent, A_timeTaken = timeTaken, A_gatewayUrl = gatewayUrl;
+
+// Step 2: Find requests to gatewayUrl B that took < 50s
+let FastB = LogTable
+| where gatewayUrl contains "B"
+  and timeTaken < 50s
+| project traceparent, B_timeTaken = timeTaken, B_gatewayUrl = gatewayUrl;
+
+// Step 3: Join A with B on traceparent
+SlowA
+| join kind=inner (
+    FastB
+) on $left.A_traceparent == $right.traceparent
+| project A_gatewayUrl, A_timeTaken, B_gatewayUrl, B_timeTaken, A_traceparent
+| sort by A_timeTaken desc
+```
+
+## References
 https://learn.microsoft.com/en-us/kusto/query/kql-quick-reference?view=microsoft-fabric
