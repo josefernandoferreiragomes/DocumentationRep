@@ -135,6 +135,10 @@ SlowA
 | project A_gatewayUrl, A_timeTaken, B_gatewayUrl, B_timeTaken, A_traceparent
 | sort by A_timeTaken desc
 ```
+If a column has the same name in both tables, it is sufficed with the next integer, according to join position. 
+Example for userName:
+(...) 
+| project username, userName1
 
 ## References
 https://learn.microsoft.com/en-us/kusto/query/kql-quick-reference?view=microsoft-fabric
