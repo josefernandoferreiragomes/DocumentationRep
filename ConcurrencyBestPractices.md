@@ -472,3 +472,17 @@ This demo shows how `Parallel.ForEachAsync` can create subtle race conditions wh
 5. Monitor performance impact of synchronization choices
 
 The combination of proper understanding and the right tools makes parallel processing both safe and efficient.
+
+## References
+
+Parallel Programming in .NET - Comprehensive guide covering Parallel.ForEach, PLINQ, and Task Parallel Library:
+
+https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/
+
+Thread Safety in .NET - Covers locks, concurrent collections, and synchronization primitives
+
+https://docs.microsoft.com/en-us/dotnet/standard/threading/thread-safety
+
+Minimal APIs in ASP.NET Core - Shows how to structure minimal APIs effectively
+
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis
