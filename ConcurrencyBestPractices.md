@@ -481,7 +481,7 @@ https://docs.microsoft.com/en-us/dotnet/standard/parallel-programming/
 
 Thread Safety in .NET - Covers locks, concurrent collections, and synchronization primitives
 
-https://docs.microsoft.com/en-us/dotnet/standard/threading/thread-safety
+https://learn.microsoft.com/en-us/dotnet/standard/threading/managed-threading-best-practices
 
 Minimal APIs in ASP.NET Core - Shows how to structure minimal APIs effectively
 
