@@ -1,3 +1,5 @@
+# Move to Linux
+
 🐧 Most Popular Linux Distributions (2025 Edition)
 
 For an intermediate legacy machine
@@ -105,4 +107,5 @@ Using Ventoy (Multi-ISO USB)
 - Want speed on older hardware? → Linux Lite or Mint XFCE
 - Want cutting-edge tools? → Pop!_OS or Fedora
 
----
+# Installing software 
+
