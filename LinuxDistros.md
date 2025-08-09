@@ -109,3 +109,162 @@ Using Ventoy (Multi-ISO USB)
 
 # Installing software 
 
+🧠 Linux Compatibility Guide for Popular Tools (2025)
+
+This guide compares Linux distributions that support Chrome, Roblox, Steam, Riot Games, Visual Studio Code, and Docker. It also includes installation walkthroughs for each tool.
+
+---
+
+✅ Compatible Linux Distributions
+
+| Distro        | Chrome | Roblox | Steam | Riot Games | VS Code | Docker |
+|---------------|--------|--------|-------|------------|---------|--------|
+| Ubuntu    | ✅     | ⚠️ via Wine/Vinegar | ✅     | ⚠️ via Wine | ✅     | ✅     |
+| Linux Mint| ✅     | ⚠️ via Wine/Vinegar | ✅     | ⚠️ via Wine | ✅     | ✅     |
+| Pop!_OS   | ✅     | ⚠️ via Wine/Vinegar | ✅     | ⚠️ via Wine | ✅     | ✅     |
+| Kubuntu   | ✅     | ⚠️ via Wine/Vinegar | ✅     | ⚠️ via Wine | ✅     | ✅     |
+| Manjaro   | ✅     | ⚠️ via Wine/Vinegar | ✅     | ⚠️ via Wine | ✅     | ✅     |
+
+> ⚠️ Roblox and Riot Games require workarounds like Wine, Vinegar, or Sober. Native support is not available.
+
+---
+
+🔧 Tool Installation Walkthroughs
+
+🌐 Google Chrome
+`bash
+wget https://dl.google.com/linux/direct/google-chrome-stablecurrentamd64.deb
+sudo apt install ./google-chrome-stablecurrentamd64.deb
+`
+- For Manjaro:
+`bash
+pamac install google-chrome
+`
+
+---
+
+🎮 Steam
+
+Ubuntu/Mint/Pop!_OS/Kubuntu:
+`bash
+sudo apt update
+sudo apt install steam
+`
+
+Manjaro:
+`bash
+sudo pacman -S steam
+`
+
+---
+
+🧩 Roblox (via Vinegar & Sober)
+
+Step-by-Step:
+`bash
+sudo apt install flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub org.vinegarhq.Vinegar
+flatpak install flathub org.vinegarhq.Sober
+`
+
+---
+
+⚔️ Riot Games (League of Legends)
+`bash
+sudo apt install lutris wine
+`
+- Use Lutris to install League via community scripts.
+
+---
+
+💻 Visual Studio Code
+
+Ubuntu/Mint/Pop!_OS/Kubuntu:
+`bash
+sudo apt update
+sudo apt install software-properties-common apt-transport-https wget
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt update
+sudo apt install code
+`
+
+Manjaro:
+`bash
+pamac install code
+`
+
+---
+
+🐳 Docker
+
+Ubuntu/Mint/Pop!_OS/Kubuntu:
+`bash
+sudo apt update
+sudo apt install docker.io docker-compose
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo usermod -aG docker $USER
+`
+
+Manjaro:
+`bash
+sudo pacman -S docker
+sudo systemctl enable docker
+sudo systemctl start docker
+`
+
+---
+
+🧠 Recommended Distro by Use Case
+
+| Use Case        | Best Distro     |
+|-----------------|-----------------|
+| Gaming + Steam  | Pop!_OS, Manjaro |
+| Roblox & Wine   | Ubuntu, Linux Mint |
+| Docker & Dev    | Ubuntu, Kubuntu |
+| General Use     | Linux Mint, Pop!_OS |
+
+---
+
+🔧 Creating a Bootable USB
+
+🧰 What You’ll Need
+- USB stick (8GB+)
+- ISO file of your chosen distro
+- Flashing tool: Rufus, balenaEtcher, or Ventoy
+
+🚀 Steps
+
+Using Rufus (Windows)
+`text
+1. Open Rufus
+2. Select USB drive
+3. Choose ISO file
+4. Set Partition Scheme: MBR (BIOS) or GPT (UEFI)
+5. Click Start
+`
+
+Using balenaEtcher (All OSes)
+`text
+1. Open Etcher
+2. Select ISO file
+3. Select USB drive
+4. Click Flash
+`
+
+Using Ventoy (Multi-ISO)
+`text
+1. Install Ventoy to USB
+2. Copy ISO files directly to USB
+3. Boot and choose ISO from menu
+`
+
+---
+
+📚 Resources
+
+- Roblox on Linux – DevForum
+- League of Linux
+- Docker on Pop!_OS guide
