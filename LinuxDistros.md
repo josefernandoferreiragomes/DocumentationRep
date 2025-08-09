@@ -266,5 +266,13 @@ Using Ventoy (Multi-ISO)
 📚 Resources
 
 - Roblox on Linux – DevForum
+
+https://devforum.roblox.com/t/the-ultimate-guide-on-how-to-run-roblox-on-linux-studio-player/3171920
+
 - League of Linux
+
+https://leagueoflinux.gitlab.io/
+
 - Docker on Pop!_OS guide
+
+https://linuxiac.com/how-to-install-docker-on-pop-os-22-04/
