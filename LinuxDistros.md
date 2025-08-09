@@ -34,12 +34,19 @@ An Intel Core i5-4590, 8GB RAM is well-suited for most modern Linux distros. Bel
 1. Download the ISO
 Choose your distro:
 - Linux Mint
+- https://linuxmint.com/download.php
 - Ubuntu
+- https://ubuntu.com/download
 - Zorin OS
+- https://zorin.com/os/download/
 - Kubuntu
+- https://kubuntu.org/getkubuntu/
 - Fedora
+- https://fedoraproject.org//
 - Pop!_OS
+- https://system76.com/pop/
 - Linux Lite
+- https://www.linuxliteos.com/download.php
 
 2. Flash the ISO to USB
 
