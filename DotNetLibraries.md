@@ -9,3 +9,6 @@ https://learn.microsoft.com/en-us/aspnet/core/tutorials/signalr?view=aspnetcore-
 
 ## Aspire
 [dotnet-aspire-a-game-changer-for-cloud-native-development](https://www.milanjovanovic.tech/blog/dotnet-aspire-a-game-changer-for-cloud-native-development)
+
+# xUnit and Moq
+[unit-testing-in-c-using-xunit-and-moq-without-the-boring-examples](https://ziedrebhi.medium.com/the-ultimate-guide-to-unit-testing-in-c-using-xunit-and-moq-without-the-boring-examples-e53624e4db2b)
