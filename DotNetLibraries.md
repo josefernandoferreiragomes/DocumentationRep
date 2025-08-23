@@ -2,6 +2,7 @@
 
 ## Poly
 https://www.pollydocs.org/getting-started.html
+https://dev.to/neers/implement-circuit-breaker-using-polly-in-net-core-8-5gm1
 
 ## SignalR
 https://learn.microsoft.com/en-us/aspnet/core/tutorials/signalr?view=aspnetcore-9.0&tabs=visual-studio
