@@ -486,3 +486,6 @@ https://learn.microsoft.com/en-us/dotnet/standard/threading/managed-threading-be
 Minimal APIs in ASP.NET Core - Shows how to structure minimal APIs effectively
 
 https://docs.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis
+
+Medium / Thread Safety C#
+https://medium.com/@wgyxxbf/thread-security-in-c-547e5f7cfe2b
