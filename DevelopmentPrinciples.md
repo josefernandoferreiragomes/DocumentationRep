@@ -1,2 +1,2 @@
 ## Sources
-[Principles.Dev](www.principles.dev)
+[Principles.Dev](https://principles.dev)
