@@ -36,3 +36,6 @@
 
 #### Scribe
 	https://scribehow.com/
+
+### Monitoring and diagnostic 
+https://www.xda-developers.com/pc-never-crashes-anymore-since-installed-diagnostic-tool/
