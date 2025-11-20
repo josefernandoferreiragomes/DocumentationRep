@@ -236,13 +236,13 @@ Especially with 3.5" HDDs or cheap USB enclosures.
 
 ---
 
-📌 If you want, run these commands when the disk appears and paste the output:
+📌 Commands to verify disk state:
 
 lsblk -f
 sudo smartctl -a /dev/sdX
 dmesg | tail -n 50
 
-I can tell you in minutes:
+It indicates:
 
 whether the disk is failing,
 
@@ -251,3 +251,163 @@ whether it's a cable issue,
 whether the controller has problems,
 
 or whether it's a filesystem that needs repair.
+Sure! Below is a clear, practical explanation of how to use each command—including what it does, when to use it, and what results mean. You can follow them step-by-step in Linux Mint.
+
+
+---
+
+🟦 1. lsblk -f — List all block devices
+
+Purpose:
+
+Shows all disks and partitions currently recognized by Linux.
+
+How to run it:
+
+Open Terminal → type:
+
+lsblk -f
+
+What to look for:
+
+You should see output like:
+
+sda   465G  
+├─sda1  EFI
+├─sda2  ext4
+sdb   1.8T  
+└─sdb1 ntfs
+
+If your missing disk does not appear, Linux isn't seeing it at all.
+
+
+---
+
+🟦 2. sudo fdisk -l — Low-level disk scan
+
+Purpose:
+
+Asks the kernel to list every disk it knows about.
+
+Run it:
+
+sudo fdisk -l
+
+You'll need to enter your password.
+
+What to look for:
+
+Sections starting with:
+
+Disk /dev/sda: ...
+Disk /dev/sdb: ...
+
+If your disk is not listed here either, Linux does not recognize it at boot time.
+
+
+---
+
+🟦 3. Inspect kernel messages
+
+Purpose:
+
+To check if the kernel tried to detect the disk but had errors (cable issues, dead disk, timeout, etc.)
+
+Run:
+
+dmesg | grep -iE "sda|sdb|ata|disk|error"
+
+This filters messages about storage devices.
+
+You might see:
+
+ATA bus error → bad SATA cable
+
+I/O error → disk failing
+
+device not ready → disk failing to spin
+
+link is slow to respond → often power-related
+
+
+
+---
+
+🟦 4. Force Linux to rescan for new disks
+
+Sometimes the disk doesn’t appear automatically.
+
+Run:
+
+echo "- - -" | sudo tee /sys/class/scsi_host/host*/scan
+
+This tells Linux to "recheck all SATA ports".
+
+After rescanning, check again:
+
+lsblk
+
+If it appears now, the disk or controller might be slow to initialize at boot.
+
+
+---
+
+🟦 5. SMART diagnostic (only works if disk is at least partly detected)
+
+Install SMART tools:
+
+sudo apt install smartmontools
+
+Run SMART test:
+
+sudo smartctl -a /dev/sdX
+
+Replace sdX with the device name (sda, sdb, etc).
+
+What you might see:
+
+SMART overall-health: PASSED → disk works
+
+READ FAIL or FAILED → disk dying
+
+Device not found → Linux still can’t see the disk
+
+
+
+---
+
+🟦 6. If it is a USB external disk
+
+Detect USB devices:
+
+lsusb
+
+Check last kernel messages related to USB:
+
+dmesg | tail -n 30
+
+This will show messages like:
+
+unable to enumerate USB device → bad USB cable
+
+I/O error → disk or enclosure failure
+
+reset high-speed USB device → unstable connection
+
+
+
+---
+
+🟦 7. If disk is not detected in BIOS/UEFI
+
+Linux cannot detect the disk if BIOS doesn’t.
+
+Check:
+
+Is the disk visible in BIOS?
+
+Are SATA/NVMe settings correct (AHCI mode)?
+
+Are cables firmly connected?
+
+---
