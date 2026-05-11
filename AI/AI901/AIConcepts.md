@@ -188,8 +188,9 @@ These preprocessing techniques help AI systems better understand and analyze hum
 - https://learn.microsoft.com/en-us/training/paths/get-started-with-artificial-intelligence-on-azure/
 
 ---
+---
 
-# Statistical Techniques in NLP — AI-900 Study Notes
+# Statistical Techniques in NLP
 
 ## Core Concept
 
