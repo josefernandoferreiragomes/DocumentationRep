@@ -1,4 +1,4 @@
-# Introduction to Language Processing - Summary
+# Introduction to natural language processing concepts
 
 ## Official Microsoft Learn Page
 
