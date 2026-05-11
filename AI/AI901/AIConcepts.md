@@ -508,3 +508,6 @@ Azure AI services primarily use modern transformer-based approaches internally.
 
 - Statistical Language Modeling overview:
   https://www.microsoft.com/en-us/research/wp-content/uploads/2017/01/Introduction-to-the-Special-Issue-on-Statistical-Language-Modeling.pdf
+
+- https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-natural-language-processing-nlp
+- https://azure.microsoft.com/products/ai-foundry/tools/language
