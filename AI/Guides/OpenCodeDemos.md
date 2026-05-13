@@ -4,6 +4,39 @@
 
 npm i -g opencode-ai
 
+### Initial file structure
+
+```bash
+AGENTS.MD
+/tests
+/docs
+```
+
+### Agents.md content
+```bash
+A snake game written in html + ts + css
+
+### Coding rules:
+- Use npm or node, whatever easier
+- Don't write inline documentation
+- After every new feature update the /docs folder
+- For each new feature implement a unit test in the tests folder
+- Before witing code, always plan first
+```
+
+### Prompt
+```bash
+Create a minimal snake game, just basic controls, basic visuals, keep track of scores
+```
+
+### Execution
+
+The agent planned it
+
+Agree and prompt 'proceed'
+
+The agent built it
+
 ### The agent executed it
 
 ```bash
