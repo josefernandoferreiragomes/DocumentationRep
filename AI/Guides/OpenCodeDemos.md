@@ -53,3 +53,5 @@ Run with: npm run dev (dev server) or npx vite build (prod build) or npm test (9
 
 Controls: Arrow keys. Snake starts center, eats red food (+10), grows. Game over on wall or self collision.
 ```
+
+### Success! The game runs and the tests pass
