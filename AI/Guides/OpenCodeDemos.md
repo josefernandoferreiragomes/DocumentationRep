@@ -1,5 +1,7 @@
 ## Demo on creating a snake game, based on youtube tutorial
 
+https://www.youtube.com/watch?v=DAaw7Ao_zUc
+
 ### install opencode from https://opencode.ai/download
 
 npm i -g opencode-ai
