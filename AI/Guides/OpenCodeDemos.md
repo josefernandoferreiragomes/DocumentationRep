@@ -4,18 +4,19 @@
 
 npm i -g opencode-ai
 
-### install bun
-
-powershell -c "irm bun.sh/install.ps1|iex"
+### The agent executed it
 
 ```bash
--=O=-               #       #        #        #                                                                               curl: (35) schannel: next InitializeSecurityContext failed: CRYPT_E_NO_REVOCATION_CHECK (0x80092012) - The revocation function was unable to check revocation for the certificate.
+All done. Here's what was built:
+File
+index.html
+style.css
+src/engine.ts
+src/main.ts
+tests/game.test.ts
+docs/architecture.md
 
-WARNING: The command 'curl.exe https://github.com/oven-sh/bun/releases/latest/download/bun-windows-x64.zip -o
-C:\Users\josef\.bun\bin\bun-windows-x64.zip' exited with code 35
-Trying an alternative download method...
-Bun 1.3.14 was installed successfully!
-The binary is located at C:\Users\josef\.bun\bin\bun.exe
+Run with: npm run dev (dev server) or npx vite build (prod build) or npm test (9/9 passing).
 
-To get started, restart your terminal/editor, then type "bun""
+Controls: Arrow keys. Snake starts center, eats red food (+10), grows. Game over on wall or self collision.
 ```
