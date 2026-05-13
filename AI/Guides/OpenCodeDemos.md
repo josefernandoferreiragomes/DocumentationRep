@@ -55,3 +55,11 @@ Controls: Arrow keys. Snake starts center, eats red food (+10), grows. Game over
 ```
 
 ### Success! The game runs and the tests pass
+
+## Create pr
+
+Created new command for opencode named /create_pr
+
+Asked cursor to make a change to the board, to make it twice the size.
+
+executed command
