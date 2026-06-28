@@ -1,6 +1,6 @@
 ## AI Guides
 
-https://medium.com/@theo-james/how-to-use-notebooklm-learn-new-topic-fast-a53bf2da888
+https://medium.com/@theo-james/how-to-use-notebooklm-learn-new-topic-fast-a53bf2da8883
 
 https://substack.com/@ruben/note/c-241596743?r=73s6ua
 
