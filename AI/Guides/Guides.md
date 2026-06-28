@@ -1,5 +1,7 @@
 ## AI Guides
 
+https://medium.com/@theo-james/how-to-use-notebooklm-learn-new-topic-fast-a53bf2da888
+
 https://substack.com/@ruben/note/c-241596743?r=73s6ua
 
 https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assistant/lesson/00vs42k/course-notes
