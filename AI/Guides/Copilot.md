@@ -7,5 +7,8 @@ https://code.visualstudio.com/docs/agents/overview
 
 https://code.visualstudio.com/docs/agents/agents-tutorial
 
-## Agents
+The Ultimate Agent Mode Tutorial in VS Code: Vision, MCP, Custom Agents & More!
+https://www.youtube.com/watch?v=5NxGqnTazR8
+
+## Awesome Copilot Agents
 https://github.com/github/awesome-copilot/blob/main/docs/README.agents.md
