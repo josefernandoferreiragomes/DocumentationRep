@@ -9,3 +9,5 @@ https://learn.deeplearning.ai/courses/claude-code-a-highly-agentic-coding-assist
 https://www.freecodecamp.org/news/how-to-build-software-factory-with-claude-code/
 
 https://machinelearningmastery.com/context-vs-memory-engineering-in-agentic-ai-systems/
+
+https://towardsdatascience.com/tokenminning-how-to-get-more-from-your-chatbot-for-less/
