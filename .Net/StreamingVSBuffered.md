@@ -293,3 +293,257 @@ Console.WriteLine();
 
 app.Run();
 ```
+
+## ReadMe.md
+```
+# Streaming vs Buffering Demo API
+
+A minimal ASP.NET Core API demonstrating the difference between **streaming** and **buffering** file responses.
+
+## Files
+
+- **Program.cs** — Main application with both endpoints
+- **StreamingDemo.csproj** — Project configuration for .NET 8
+- **sample-file.txt** — Auto-generated on first run (10,000 lines of text)
+
+## Prerequisites
+
+- .NET 8 SDK or later
+- A terminal/command prompt
+
+## Running the Demo
+
+### Option 1: Using dotnet CLI
+
+```bash
+# Restore dependencies
+dotnet restore
+
+# Run the application
+dotnet run
+```
+
+### Option 2: Using Visual Studio / Visual Studio Code
+
+1. Open the folder in VS Code or Visual Studio
+2. Press `F5` or click "Run"
+
+The app will start on `http://localhost:5000`
+
+## Endpoints
+
+### GET `/` — Health Check / Info Page
+
+Returns information about available endpoints and notes on testing.
+
+**Example:**
+```
+curl http://localhost:5000/
+```
+
+### GET `/download/buffered` — Buffered Download
+
+**Behavior:**
+- Reads the entire file into a `byte[]` array first
+- Holds all file content in memory
+- Then writes to the HTTP response
+
+**Code:**
+```csharp
+byte[] fileBytes = File.ReadAllBytes(sampleFilePath);
+return Results.File(fileBytes, "text/plain", "buffered-download.txt");
+```
+
+**When to use:**
+- Small files (< 10 MB)
+- When you need the full file size upfront for `Content-Length` header
+- When you need error handling before any response is sent
+
+**Test:**
+```bash
+curl -O http://localhost:5000/download/buffered
+```
+
+### GET `/download/streamed` — Streamed Download
+
+**Behavior:**
+- Opens the file stream directly
+- Writes to HTTP response stream without buffering
+- No intermediate memory allocation for the entire file
+
+**Code:**
+```csharp
+return Results.Stream(
+    async (outputStream) =>
+    {
+        using (var fileStream = File.OpenRead(sampleFilePath))
+        {
+            await fileStream.CopyToAsync(outputStream);
+        }
+    },
+    contentType: "text/plain",
+    fileDownloadName: "streamed-download.txt"
+);
+```
+
+**When to use:**
+- Large files (> 100 MB)
+- When generating files dynamically (PDFs, ZIPs)
+- When memory efficiency matters
+- Cloud storage scenarios (Azure Blob, S3)
+- Video/media streaming
+
+**Test:**
+```bash
+curl -O http://localhost:5000/download/streamed
+```
+
+### GET `/swagger/ui` — Swagger Documentation
+
+Interactive API documentation powered by Swashbuckle.
+
+**Visit:** `http://localhost:5000/swagger/ui`
+
+## Console Output
+
+When you make requests, the console displays timing information:
+
+```
+[BUFFERED] Request received
+[BUFFERED] File loaded into memory: 456789 bytes in 5ms
+
+[STREAMED] Request received
+[STREAMED] Starting to write to response stream
+[STREAMED] Completed writing to response stream in 3ms
+```
+
+## Key Differences to Observe
+
+### Memory Usage
+
+| Aspect | Buffered | Streamed |
+|--------|----------|----------|
+| **Memory footprint** | Entire file size (+ GC overhead) | Few KB to MB (buffer chunks only) |
+| **Scalability** | Linear with file size | Constant |
+| **Concurrent requests** | 10 × 100MB file = 1GB RAM | 10 × 100MB file ≈ 10MB RAM |
+
+### Time to First Byte
+
+- **Buffered**: Must read entire file before first byte is sent
+- **Streamed**: First byte sent as soon as file read begins
+
+### Error Handling
+
+- **Buffered**: Errors before response headers are sent return clean HTTP error
+- **Streamed**: Errors mid-stream result in truncated responses
+
+## Testing with Large Files
+
+To test with a larger file and see real memory differences:
+
+1. Modify `Program.cs` to generate a bigger sample file:
+   ```csharp
+   Enumerable.Range(1, 1000000)  // 1 million lines instead of 10,000
+   ```
+
+2. Run the app and monitor memory usage:
+   - **Windows**: Task Manager → Processes
+   - **macOS**: Activity Monitor
+   - **Linux**: `top` or `htop`
+
+3. Hit `/download/buffered` and watch memory spike
+4. Hit `/download/streamed` and observe minimal memory increase
+
+## HTTP Details
+
+### Buffered Response Headers
+
+```
+HTTP/1.1 200 OK
+Content-Type: text/plain
+Content-Length: 456789              ← Known size upfront
+Content-Disposition: attachment; filename="buffered-download.txt"
+```
+
+### Streamed Response Headers
+
+```
+HTTP/1.1 200 OK
+Content-Type: text/plain
+Transfer-Encoding: chunked          ← Size unknown, sent in chunks
+Content-Disposition: attachment; filename="streamed-download.txt"
+```
+
+## Real-World Scenarios
+
+### PDF Generation (Dynamic)
+```csharp
+app.MapGet("/report.pdf", () =>
+{
+    return Results.Stream(
+        async (stream) =>
+        {
+            using var pdfDocument = new PdfDocument();
+            // Generate PDF content...
+            pdfDocument.Save(stream, false);
+        },
+        "application/pdf",
+        "report.pdf"
+    );
+});
+```
+
+### ZIP Archive (Multiple Files)
+```csharp
+app.MapGet("/export.zip", () =>
+{
+    return Results.Stream(
+        async (stream) =>
+        {
+            using var archive = new ZipArchive(stream, ZipArchiveMode.Create, true);
+            foreach (var file in Directory.GetFiles("./data"))
+            {
+                var entry = archive.CreateEntry(Path.GetFileName(file));
+                using var entryStream = entry.Open();
+                using var source = File.OpenRead(file);
+                await source.CopyToAsync(entryStream);
+            }
+        },
+        "application/zip",
+        "export.zip"
+    );
+});
+```
+
+### Azure Blob Storage
+```csharp
+app.MapGet("/blob/{name}", async (string name, BlobClient blob) =>
+{
+    var download = await blob.DownloadAsync();
+    return Results.Stream(
+        download.Value.Content,
+        "application/octet-stream",
+        name
+    );
+});
+```
+
+## Stopping the App
+
+Press `Ctrl+C` in the terminal.
+
+## Next Steps
+
+1. Try both endpoints and compare the console output
+2. Increase the sample file size and observe memory differences
+3. Implement your own file generation logic (PDF, ZIP, etc.)
+4. Test with real large files from your application
+5. Monitor HTTP headers with browser DevTools or curl `-v`
+
+## References
+
+- [Microsoft Learn: Create responses in Minimal API applications](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/responses)
+- [Results.Stream API Documentation](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.results.stream)
+- [ASP.NET Core Minimal APIs](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis)
+
+```
