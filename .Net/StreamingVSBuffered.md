@@ -166,3 +166,130 @@ Introduced as: "for scenarios where developers need access to the underlying HTT
 - No backpressure handling
 
 The official Microsoft guidance: use streaming to access the underlying HTTP response stream without buffering, especially for large files and cloud storage scenarios like Azure Blob Storage.
+
+## Demo
+### Program.cs
+```csharp
+using System.Diagnostics;
+
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+// Create a sample text file for demo purposes if it doesn't exist
+const string sampleFilePath = "sample-file.txt";
+if (!File.Exists(sampleFilePath))
+{
+    var sampleContent = string.Join(
+        Environment.NewLine,
+        Enumerable.Range(1, 10000)
+            .Select(i => $"Line {i}: This is a sample line with some content for demonstration purposes.")
+    );
+    await File.WriteAllTextAsync(sampleFilePath, sampleContent);
+    Console.WriteLine($"✓ Created sample file: {sampleFilePath}");
+}
+
+// Endpoint 1: Buffered result (loads entire file into memory first)
+app.MapGet("/download/buffered", () =>
+{
+    Console.WriteLine("[BUFFERED] Request received");
+    var stopwatch = Stopwatch.StartNew();
+    
+    // Read entire file into memory
+    byte[] fileBytes = File.ReadAllBytes(sampleFilePath);
+    
+    stopwatch.Stop();
+    Console.WriteLine($"[BUFFERED] File loaded into memory: {fileBytes.Length} bytes in {stopwatch.ElapsedMilliseconds}ms");
+    
+    // Return the byte array
+    return Results.File(
+        fileBytes, 
+        contentType: "text/plain",
+        fileDownloadName: "buffered-download.txt"
+    );
+})
+.WithName("DownloadBuffered")
+.WithOpenApi()
+.WithDescription("Downloads file by buffering entire content into memory first");
+
+// Endpoint 2: Streamed result (writes directly to response stream without buffering)
+app.MapGet("/download/streamed", () =>
+{
+    Console.WriteLine("[STREAMED] Request received");
+    
+    // Return a Result.Stream that writes directly to the response stream
+    return Results.Stream(
+        async (outputStream) =>
+        {
+            Console.WriteLine("[STREAMED] Starting to write to response stream");
+            var stopwatch = Stopwatch.StartNew();
+            
+            // Open file and copy directly to response stream without buffering
+            using (var fileStream = File.OpenRead(sampleFilePath))
+            {
+                await fileStream.CopyToAsync(outputStream);
+            }
+            
+            stopwatch.Stop();
+            Console.WriteLine($"[STREAMED] Completed writing to response stream in {stopwatch.ElapsedMilliseconds}ms");
+        },
+        contentType: "text/plain",
+        fileDownloadName: "streamed-download.txt"
+    );
+})
+.WithName("DownloadStreamed")
+.WithOpenApi()
+.WithDescription("Downloads file by streaming directly to response without buffering");
+
+// Endpoint 3: Health check
+app.MapGet("/", () => new
+{
+    message = "Streaming vs Buffering Demo API",
+    endpoints = new
+    {
+        buffered = new
+        {
+            url = "/download/buffered",
+            description = "Returns file by loading entire content into memory first",
+            method = "GET"
+        },
+        streamed = new
+        {
+            url = "/download/streamed",
+            description = "Returns file by streaming directly to response without buffering",
+            method = "GET"
+        }
+    },
+    notes = new[]
+    {
+        "Use /download/buffered to see memory allocation of entire file upfront",
+        "Use /download/streamed to see streaming write to response stream",
+        "Check console output to see timing and memory behavior differences",
+        "Monitor memory usage with tools like Task Manager or 'dotnet trace' for real differences with large files"
+    }
+})
+.WithName("Index")
+.WithOpenApi();
+
+// Add OpenAPI/Swagger documentation
+app.UseSwagger();
+app.UseSwaggerUI();
+
+Console.WriteLine();
+Console.WriteLine("╔════════════════════════════════════════════════════════════╗");
+Console.WriteLine("║  Streaming vs Buffering Demo API                           ║");
+Console.WriteLine("╠════════════════════════════════════════════════════════════╣");
+Console.WriteLine("║  Sample file: sample-file.txt                              ║");
+Console.WriteLine("║                                                            ║");
+Console.WriteLine("║  Endpoints:                                                ║");
+Console.WriteLine("║    GET http://localhost:5000/                 (info page)  ║");
+Console.WriteLine("║    GET http://localhost:5000/download/buffered            ║");
+Console.WriteLine("║        → Loads file into byte[] then sends                ║");
+Console.WriteLine("║    GET http://localhost:5000/download/streamed            ║");
+Console.WriteLine("║        → Streams file directly to response                ║");
+Console.WriteLine("║                                                            ║");
+Console.WriteLine("║  Swagger UI: http://localhost:5000/swagger/ui             ║");
+Console.WriteLine("╚════════════════════════════════════════════════════════════╝");
+Console.WriteLine();
+
+app.Run();
+```
