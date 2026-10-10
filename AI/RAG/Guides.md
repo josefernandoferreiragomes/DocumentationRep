@@ -5,3 +5,6 @@ https://machinelearningmastery.com/automating-knowledge-graph-population-extract
 
 ### Adding temporal reasoning to graph rag tracking
 https://machinelearningmastery.com/adding-temporal-reasoning-to-graph-rag-tracking-fact-freshness-and-staleness/
+
+## evaluating-graph-rag-vs-standard-rag-a-hallucination-benchmark-on-fact-dense-queries
+https://machinelearningmastery.com/evaluating-graph-rag-vs-standard-rag-a-hallucination-benchmark-on-fact-dense-queries/
