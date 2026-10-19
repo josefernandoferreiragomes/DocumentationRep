@@ -1,5 +1,9 @@
-API Design & Architecture Patterns
+## API Design & Architecture Patterns
 
+### Freecodecamp api design course
+https://www.freecodecamp.org/news/learn-how-to-design-software-systems-like-a-senior-engineer-in-our-new-course/
+
+### Other topics in apj design
 1. API Gateway Pattern
 
 A single entry point for all clients. Handles routing, caching, auth, rate limiting, etc.
