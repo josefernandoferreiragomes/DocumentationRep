@@ -5,3 +5,9 @@ https://www.marktechpost.com/2026/04/24/meet-gitnexus-an-open-source-mcp-native-
 
 MCP explained 
 https://machinelearningmastery.com/model-context-protocol-explained-in-3-levels-of-difficulty/
+
+MCP modelcontextprotocol.io
+https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture
+
+MCP in Claude
+https://www.kdnuggets.com/mcp-explained-in-5-minutes
