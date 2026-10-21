@@ -242,6 +242,9 @@
 
 ## **4. Process Management**
 - `tasklist` – List running processes.
+```cmd
+tasklist | findstr /I notepad
+```
 - `taskkill` – Kill a process by its PID or name.
   ```cmd
   taskkill /PID 1234
