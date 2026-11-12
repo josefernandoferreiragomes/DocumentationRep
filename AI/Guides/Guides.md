@@ -13,3 +13,5 @@ https://machinelearningmastery.com/context-vs-memory-engineering-in-agentic-ai-s
 https://towardsdatascience.com/tokenminning-how-to-get-more-from-your-chatbot-for-less/
 
 https://machinelearningmastery.com/the-complete-guide-to-tool-selection-in-ai-agents/
+
+https://www.freecodecamp.org/news/learn-agentic-coding-with-codex-ai-coding-agents/
