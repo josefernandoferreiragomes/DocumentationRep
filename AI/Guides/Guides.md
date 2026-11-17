@@ -17,3 +17,5 @@ https://machinelearningmastery.com/the-complete-guide-to-tool-selection-in-ai-ag
 https://www.freecodecamp.org/news/learn-agentic-coding-with-codex-ai-coding-agents/
 
 https://www.kdnuggets.com/9-key-llm-inference-metrics-explained-in-5-minutes
+
+https://www.kdnuggets.com/agentic-system-design-a-self-study-roadmap
